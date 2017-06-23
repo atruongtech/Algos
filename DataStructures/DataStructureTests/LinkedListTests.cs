@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using LinkedLists;
+using System.Collections.Generic;
 
 namespace DataStructureTests
 {
@@ -55,6 +56,30 @@ namespace DataStructureTests
 
             Assert.AreEqual(6, count);
             Assert.AreEqual(list2, merged.Next);
+        }
+
+        [Test]
+        public void PairwiseSwapper_Returns_SwappedList()
+        {
+            List<LinkedListNode> listOfNodes = new List<LinkedListNode>();
+            for (int i = 0; i < 6; i++)
+            {
+                listOfNodes.Add(new LinkedListNode(i));
+                if (i > 0)
+                {
+                    listOfNodes[i - 1].Next = listOfNodes[i];
+                }
+            }
+
+            LinkedListNode newHead = PairWiseSwapper.Swap(listOfNodes[0]);
+
+            Assert.AreEqual(newHead, listOfNodes[1]);
+            Assert.AreEqual(newHead.Next, listOfNodes[0]);
+
+            LinkedListNode twoDown = newHead.Next.Next;
+
+            Assert.AreEqual(twoDown, listOfNodes[3]);
+            Assert.AreEqual(twoDown.Next, listOfNodes[2]);
         }
     }
 }

@@ -44,9 +44,11 @@
   <ItemGroup>
     <Compile Include="ArraysAlgos.cs" />
     <Compile Include="GeneralAlgos.cs" />
+    <Compile Include="GraphAlgos.cs" />
     <Compile Include="LinkedListMerger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeAlgos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

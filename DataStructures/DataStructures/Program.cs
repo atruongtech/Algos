@@ -10,14 +10,19 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            GeneralAlgos.FibonacciSequence fib = new GeneralAlgos.FibonacciSequence();
-            var output = fib.FibonacciOfN(50);
+            List<int> inputs = new List<int>();
+            inputs.Add(3);
+            inputs.Add(35);
+            inputs.Add(21);
+            inputs.Add(10);
+            inputs.Add(1);
 
-            var sorted = fib.pastValues.OrderBy(x => x.Key);
-            foreach (KeyValuePair<int, int> pair in sorted)
+            List<int> sorted = ArrayAlgos.MergeSorter.MergeSort(inputs);
+            foreach(int number in sorted)
             {
-                Console.WriteLine($"{pair.Key}: {pair.Value}");
+                Console.WriteLine(number);
             }
+
             Console.ReadLine();
         }
     }

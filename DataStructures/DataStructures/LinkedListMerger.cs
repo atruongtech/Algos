@@ -17,6 +17,32 @@ namespace LinkedLists
         }
     }
 
+    public class PairWiseSwapper
+    {
+        public static LinkedListNode Swap(LinkedListNode head)
+        {
+            LinkedListNode lag = head;
+            LinkedListNode lead = lag == null ? null : lag.Next;
+            LinkedListNode prevLead = null;
+
+            head = lead == null ? lag : lead;
+
+            while (lag != null && lead != null)
+            {
+                lag.Next = lead.Next;
+                lead.Next = lag;
+                if (prevLead != null)
+                    prevLead.Next = lead;
+
+                prevLead = lag;
+                lag = lag.Next;
+                lead = lag == null ? null: lag.Next;
+            }
+
+            return head;
+        }
+    }
+
     public class LinkedListMerger
     {
         // merge two sorted linked lists
